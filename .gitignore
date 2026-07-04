@@ -1,0 +1,17 @@
+# Node
+frontend/node_modules/
+frontend/.next/
+
+# Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+
+# Environment
+backend/.env
+frontend/.env
+
+# Database
+backend/*.db
+
+.vscode/
