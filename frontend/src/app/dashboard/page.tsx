@@ -8,8 +8,13 @@ import DashboardLayout from '../../components/DashboardLayout';
 import { 
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer 
 } from 'recharts';
-import { 
-  Sparkles, Flame, Droplet, Dumbbell, Scale, Activity, Plus, ShieldCheck 
+import {
+  Sparkles,
+  Flame,
+  Droplet,
+  Scale,
+  Activity,
+  Plus
 } from 'lucide-react';
 
 export default function Dashboard() {
@@ -18,11 +23,20 @@ export default function Dashboard() {
   // Date string helper
   const getTodayStr = () => new Date().toISOString().split('T')[0];
   
-  const [dailySummary, setDailySummary] = useState<any>({
+ interface DailySummary {
+  total_calories: number;
+  total_protein: number;
+  total_carbs: number;
+  total_fat: number;
+  logs: unknown[];
+}
+
+const [dailySummary, setDailySummary] = useState({
     total_calories: 0, total_protein: 0, total_carbs: 0, total_fat: 0, logs: []
   });
-  const [weeklySummary, setWeeklySummary] = useState<any[]>([]);
-  const [progressLogs, setProgressLogs] = useState<any[]>([]);
+  
+const [weeklySummary, setWeeklySummary] = useState([]);
+const [progressLogs, setProgressLogs] = useState([]);
   const [waterIntake, setWaterIntake] = useState(0);
 
   useEffect(() => {
